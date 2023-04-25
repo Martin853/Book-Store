@@ -2,6 +2,7 @@ import React from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { BsBook } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
   return (
@@ -17,20 +18,22 @@ export const Navbar = () => {
         />
       </div>
       <div className="flex w-3/4 justify-center gap-4 md:flex-1 md:justify-end">
-        <button
+        <Link
+          to={'/'}
           className="font-poppins font-semibold w-1/2 p-1 text-sm bg-transparent hover:bg-hoverGreen
         ] border border-black rounded-md cart-button flex justify-center items-center gap-2 md:w-2/5 "
         >
           <BsBook size={'20px'} />
           Books
-        </button>
-        <button
+        </Link>
+        <Link
+          to={'/cart'}
           className="font-poppins font-semibold w-1/2 p-1 text-sm bg-transparent hover:bg-hoverGreen
         ] border border-black rounded-md cart-button flex justify-center items-center gap-2 md:w-2/5"
         >
           <AiOutlineShoppingCart size={'20px'} />
           Cart
-        </button>
+        </Link>
       </div>
     </div>
   );
