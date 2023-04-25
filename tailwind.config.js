@@ -6,6 +6,10 @@ export default {
       colors: {
         hoverGreen: '#5c960b',
       },
+      screens: {
+        md: '900px',
+        lg: '1200px',
+      },
     },
     fontFamily: {
       poppins: ['Poppins', 'sans-serif'],
