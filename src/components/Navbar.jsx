@@ -21,7 +21,7 @@ export const Navbar = () => {
         <Link
           to={'/'}
           className="font-poppins font-semibold w-1/2 p-1 text-sm bg-transparent hover:bg-hoverGreen
-        ] border border-black rounded-md cart-button flex justify-center items-center gap-2 md:w-2/5 "
+        ] border border-black rounded-md cart-button flex justify-center items-center gap-2 md:w-2/5 transition-all duration-100 ease-linear"
         >
           <BsBook size={'20px'} />
           Books
@@ -29,7 +29,7 @@ export const Navbar = () => {
         <Link
           to={'/cart'}
           className="font-poppins font-semibold w-1/2 p-1 text-sm bg-transparent hover:bg-hoverGreen
-        ] border border-black rounded-md cart-button flex justify-center items-center gap-2 md:w-2/5"
+        ] border border-black rounded-md cart-button flex justify-center items-center gap-2 md:w-2/5 transition-all duration-100 ease-linear"
         >
           <AiOutlineShoppingCart size={'20px'} />
           Cart
