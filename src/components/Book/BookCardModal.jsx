@@ -29,7 +29,14 @@ export const BookCardModal = (props) => {
           >
             Close
           </button>
-          <button className="font-poppins font-semibold w-1/2 h-10 p-1 text-sm bg-transparent hover:bg-black hover:text-white border border-black rounded-md cart-button flex justify-center items-center gap-2 md:h-10 md:text-xl transition-all duration-100 ease-linear">
+          <button
+            disabled={props.price === 'Not Available' ? true : false}
+            className={`font-poppins font-semibold w-1/2 h-10 p-1 text-sm bg-transparent hover:bg-black hover:text-white border border-black rounded-md cart-button flex justify-center items-center gap-2 md:h-10 md:text-xl transition-all duration-100 ease-linear ${
+              props.price === 'Not Available'
+                ? 'cursor-not-allowed opacity-50'
+                : 'border'
+            }`}
+          >
             Add To Cart
           </button>
         </div>
