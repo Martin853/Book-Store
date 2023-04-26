@@ -13,6 +13,8 @@ export const Books = () => {
     dispatch(fetchBooksData());
   }, [dispatch]);
 
+  console.log(booksData);
+
   if (state.booksData.isLoading) {
     return (
       <div className="h-full flex justify-center items-center flex-col gap-4">
@@ -26,7 +28,11 @@ export const Books = () => {
     return (
       <div className="px-2 m-auto grid grid-cols-1 pt-10 pb-10 justify-items-center items-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:px-6 md:px-12">
         {booksData.items.map((book) => (
-          <BookCard key={book.id} />
+          <BookCard
+            key={book.id}
+            title={book.volumeInfo.title}
+            image={book.volumeInfo.imageLinks.thumbnail}
+          />
         ))}
       </div>
     );
