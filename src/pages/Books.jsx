@@ -7,13 +7,12 @@ import { ImSpinner8 } from 'react-icons/im';
 export const Books = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
+  const { query } = useSelector((state) => state.searchBar);
   const booksData = useSelector((state) => state.booksData.data);
 
   useEffect(() => {
     dispatch(fetchBooksData());
   }, [dispatch]);
-
-  console.log(booksData);
 
   if (state.booksData.isLoading) {
     return (
@@ -25,9 +24,19 @@ export const Books = () => {
   }
 
   if (state.booksData.data !== null) {
+    const filteredBooks = booksData.items.filter((book) => {
+      if (query === '') {
+        return true;
+      }
+
+      return book.volumeInfo.title
+        .toLowerCase()
+        .includes(query.toLowerCase().trim());
+    });
+
     return (
       <div className="px-2 m-auto grid grid-cols-1 pt-10 pb-10 justify-items-center items-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:px-6 md:px-12">
-        {booksData.items.map((book) => (
+        {filteredBooks.map((book) => (
           <BookCard
             key={book.id}
             image={book.volumeInfo.imageLinks.thumbnail}
