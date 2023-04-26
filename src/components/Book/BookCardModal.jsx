@@ -7,7 +7,7 @@ export const BookCardModal = (props) => {
         onClick={props.toggleModal}
         className="w-screen h-screen top-0 left-0 right-0 bottom-0 fixed bg-slate-900 bg-opacity-50"
       ></div>
-      <div className=" w-9/12 h-4/6 overflow-auto p-4 bg-slate-100 z-20 border-2 border-teal-950 rounded-2xl flex flex-col justify-start gap-4 sm:p-8">
+      <div className=" w-9/12 h-4/6 overflow-auto p-4 bg-slate-100 z-20 border-2 border-teal-950 rounded-2xl flex flex-col justify-start gap-4 sm:p-8 md:h-5/6">
         <h1 className="font-poppins text-2xl font-bold sm:text-4xl md:text-5xl">
           {props.title}
         </h1>
