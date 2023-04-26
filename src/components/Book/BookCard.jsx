@@ -26,7 +26,15 @@ export const BookCard = (props) => {
         </h1>
       </div>
 
-      {modal && <BookCardModal toggleModal={toggleModal} />}
+      {modal && (
+        <BookCardModal
+          toggleModal={toggleModal}
+          title={props.title}
+          author={props.author}
+          description={props.description}
+          price={props.price}
+        />
+      )}
     </>
   );
 };

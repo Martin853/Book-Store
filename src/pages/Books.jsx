@@ -30,8 +30,15 @@ export const Books = () => {
         {booksData.items.map((book) => (
           <BookCard
             key={book.id}
-            title={book.volumeInfo.title}
             image={book.volumeInfo.imageLinks.thumbnail}
+            title={book.volumeInfo.title}
+            author={book.volumeInfo.authors['0']}
+            description={book.volumeInfo.description}
+            price={
+              book.saleInfo.listPrice
+                ? book.saleInfo.listPrice.amount
+                : 'Not Available'
+            }
           />
         ))}
       </div>
