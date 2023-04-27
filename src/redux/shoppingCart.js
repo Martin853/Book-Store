@@ -16,20 +16,24 @@ export const shoppingCartSlice = createSlice({
         state.cart.push({ id, title, price, quantity });
       }
     },
+    removeOneFromCart: (state, action) => {
+      const existingItem = state.cart.find(
+        (item) => item.id === action.payload
+      );
+
+      if (existingItem.quantity === 1) {
+        state.cart = state.cart.filter((item) => item.id !== action.payload);
+      } else {
+        existingItem.quantity -= 1;
+      }
+    },
     removeFromCart: (state, action) => {
       state.cart = state.cart.filter((item) => item.id !== action.payload);
-    },
-    updateCartItem: (state, action) => {
-      const { id, quantity } = action.payload;
-      const itemToUpdate = state.cart.find((item) => item.id === id);
-      if (itemToUpdate) {
-        itemToUpdate.quantity = quantity;
-      }
     },
   },
 });
 
-export const { addToCart, removeFromCart, updateCartItem } =
+export const { addToCart, removeOneFromCart, removeFromCart } =
   shoppingCartSlice.actions;
 
 export default shoppingCartSlice.reducer;

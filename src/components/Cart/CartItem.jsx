@@ -1,12 +1,24 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../../redux/shoppingCart';
+import {
+  addToCart,
+  removeOneFromCart,
+  removeFromCart,
+} from '../../redux/shoppingCart';
 
 export const CartItem = (props) => {
   const dispatch = useDispatch();
 
   function handleAddToCart(id, title, price, quantity) {
     dispatch(addToCart({ id, title, price, quantity }));
+  }
+
+  function handleRemoveOneFromCart(id) {
+    dispatch(removeOneFromCart(id));
+  }
+
+  function handleRemoveFromCart(id) {
+    dispatch(removeFromCart(id));
   }
 
   return (
@@ -23,12 +35,14 @@ export const CartItem = (props) => {
           +
         </button>
         <button
+          onClick={() => handleRemoveOneFromCart(props.id)}
           className="font-poppins font-semibold flex-1 p-1 text-sm bg-transparent hover:bg-red-600
         ] border border-black rounded-md cart-button flex justify-center items-center gap-2  transition-all duration-100 ease-linear"
         >
           -
         </button>
         <button
+          onClick={() => handleRemoveFromCart(props.id)}
           className="font-poppins font-semibold flex-1 p-1 text-sm bg-transparent hover:bg-red-600
         ] border border-black rounded-md cart-button flex justify-center items-center gap-2  transition-all duration-100 ease-linear"
         >
