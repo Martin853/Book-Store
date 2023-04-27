@@ -1,6 +1,14 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/shoppingCart';
 
 export const BookCardModal = (props) => {
+  const dispatch = useDispatch();
+
+  function handleAddToCart(id, title, price, quantity) {
+    dispatch(addToCart({ id, title, price, quantity }));
+  }
+
   return (
     <div className="w-screen h-screen top-0 left-0 right-0 bottom-0 fixed flex justify-center items-center z-10">
       <div
@@ -30,6 +38,9 @@ export const BookCardModal = (props) => {
             Close
           </button>
           <button
+            onClick={() =>
+              handleAddToCart(props.id, props.title, props.price, 1)
+            }
             disabled={props.price === 'Not Available' ? true : false}
             className={`font-poppins font-semibold w-1/2 h-10 p-1 text-sm bg-transparent hover:bg-black hover:text-white border border-black rounded-md cart-button flex justify-center items-center gap-2 md:h-10 md:text-xl transition-all duration-100 ease-linear ${
               props.price === 'Not Available'

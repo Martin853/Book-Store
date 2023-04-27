@@ -28,6 +28,7 @@ export const BookCard = (props) => {
 
       {modal && (
         <BookCardModal
+          id={props.id}
           toggleModal={toggleModal}
           title={props.title}
           author={props.author}

@@ -39,6 +39,7 @@ export const Books = () => {
         {filteredBooks.map((book) => (
           <BookCard
             key={book.id}
+            id={book.id}
             image={book.volumeInfo.imageLinks.thumbnail}
             title={book.volumeInfo.title}
             author={book.volumeInfo.authors['0']}
