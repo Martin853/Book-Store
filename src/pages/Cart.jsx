@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { CartItem } from '../components/Cart/CartItem';
 import { Link } from 'react-router-dom';
+import { Total } from '../components/Cart/Total';
 
 export const Cart = () => {
   const { cart } = useSelector((state) => state.shoppingCart);
@@ -14,7 +15,7 @@ export const Cart = () => {
         </h1>
         <Link
           className="font-poppins font-semibold p-2 text-base bg-transparent hover:bg-lime-600
-        ] border border-black rounded-lg cart-button flex justify-center items-center gap-2  transition-all duration-100 ease-linear"
+          ] border border-black rounded-lg cart-button flex justify-center items-center gap-2  transition-all duration-100 ease-linear"
           to={'/'}
         >
           Go back shopping
@@ -23,7 +24,7 @@ export const Cart = () => {
     );
   }
   return (
-    <div className=" mt-2 p-2 mx-auto h-full flex flex-col gap-4 ">
+    <div className="mt-2 p-2 mx-auto h-full flex flex-col gap-4 ">
       {cart.map((item) => (
         <CartItem
           key={item.id}
@@ -33,6 +34,7 @@ export const Cart = () => {
           quantity={item.quantity}
         />
       ))}
+      <Total />
     </div>
   );
 };
