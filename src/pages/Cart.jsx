@@ -24,7 +24,7 @@ export const Cart = () => {
     );
   }
   return (
-    <div className="mt-2 p-2 mx-auto h-full flex flex-col gap-4 ">
+    <div className="mt-2 px-2 pt-4 mx-auto h-full flex flex-col gap-4 ">
       {cart.map((item) => (
         <CartItem
           key={item.id}
