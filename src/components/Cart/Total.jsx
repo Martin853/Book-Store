@@ -21,6 +21,7 @@ export const Total = () => {
         Total {totalCalculator()}
       </h1>
       <Link
+        to={'/checkout'}
         className="font-poppins font-semibold p-1 text-base bg-transparent hover:text-white hover:bg-black
         ] border border-black rounded-lg cart-button flex justify-center items-center gap-2  transition-all duration-100 ease-linear"
       >
